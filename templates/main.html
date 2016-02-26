@@ -1,0 +1,152 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Coastal Flyrodders</title>
+<link href='http://fonts.googleapis.com/css?family=Roboto:400,500,300,500italic|Lato:400,300,700' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{url_for( 'static', filename = 'css/style.css')}}" type="text/css" media="all" />
+<script type="text/javascript" src="{{url_for( 'static',filename='js/jquery-1.9.1.min.js')}}"></script>
+<script type="text/javascript" src="{{url_for( 'static',filename='js/smoothscroll.js')}}"></script>
+<script type="text/javascript">
+	$(document).ready(function(e) {
+        $('.eventstbl').find('td').wrapInner('<span />');
+        $('.eventstbl').find('th').wrapInner('<span />');
+    });
+</script>
+</head>
+
+<body>
+<!-- Start: Header -->
+<div class="header">
+	<div class="wrapper">
+    	<div class="logopan">
+        	<a href="#"><img src="{{url_for( 'static',filename='css/images/logo.gif')}}" alt="" title="" /></a>
+            <ul>
+                <li><a href="#meetings">Meetings</a></li>
+                <li><a href="#events">Events</a></li>
+                <li><a href="http://coastalflyrodders.com/messages/index.php" target="_blank">Message Board</a></li>
+                <li><a href="#membership">Membership</a></li>
+                <li class="last"><a href="#links">Links</a></li>
+            </ul>
+        </div>
+    	<div class="headerinfo">
+            <h2>Coastal Flyrodders</h2>
+            <p>A Northern New Jersey Saltwater Flyfishing Club whose primary goal is to have fun and learn as much as possible from one another about great east coast saltwater fly fishing and anywhere else that affords fly fishing for big fish.</p>
+        </div>
+    </div>
+</div>
+<!-- End: Header -->
+<!-- Start: Body Content -->
+<div class="bodycont">
+	<div class="wrapper" id="meetings">
+    	<h2>Meetings</h2>
+        <p>Meetings are held 7:30PM the third Tuesday of every month at the Larkin House <a href="https://maps.google.com/maps?q=380+Godwin+Ave,+Wyckoff,+NJ+07481&hnear=380+Godwin+Ave,+Wyckoff,+New+Jersey+07481&gl=us&t=m&z=16">380 Godwin Ave, Wyckoff, NJ 07481 </a> If you have questions about any meeting please post it on the message board and we will answer you.</p>
+        <h2 class="small">2016 Program Schedule</h2>
+    </div>
+    <!-- Start: Program Schedule -->
+	<!-- January -->
+    <div class="schedule">
+    {% for  speaker in speakers %}
+        <div class={{ loop.cycle("greypan", "whitepan") }}>
+            <div class="block wrapper">
+                <img src="{{url_for( 'static',filename='photos/' + speaker.photo)}}" alt="" class="picthumb" />
+                <a href="{{speaker.url}}"><h3>{{speaker.name}}</h3></a>
+                <p>{{speaker.date}}</p>
+                <p>{{speaker.describe}}</p>
+            </div>
+        </div>
+	{% endfor %}
+    </div>
+    
+    <!-- End: Program Schedule -->
+    <br/>
+    <br/>
+    <!-- Start: Events -->
+    <div class="events wrapper" id="events">
+    	<h2>2016 Events</h2>
+
+          <table width="960" border="0" cellspacing="0" cellpadding="0" class="eventstbl">
+            <tr>
+              	<th width="200" align="left" valign="middle" class="first">Date</th>
+              	<th width="560" align="left" valign="middle" class="middle">Description</th>
+              	<th width="200" align="left" valign="middle" class="last">Place</th>
+            </tr>
+            {% for event in events %}
+            <tr>
+            	<td align="left" valign="middle">{{event.date}}</td></td>
+                <td align="left" valign="middle">{{event.describe}}</td>
+                <td align="left" valign="middle">{{event.place}}</td>
+              </tr>
+            {% endfor %}
+          </table>
+    </div>
+    <!-- End: Events -->
+
+    <!-- Start: Membership -->
+    <div class="membership" id="membership">
+    	<div class="wrapper">
+        	<h2>Membership</h2>
+            <a href="Coastal Flyrodders Membership Application.pdf" class="downloadlink">click here to download</a>
+            <p>Membership is $50.00 per year. You can mail a check to Coastal Flyrodders P.O Box 1402, Morristown, NJ 07962 or use simply use Paypal. You also need to sign the Membership Application. </p>
+            <div class="paymentoptions">
+            	<div class="inner">
+                	<h3>Payment options :</h3>
+                    <div class="icons">
+						<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+							<input type="hidden" name="cmd" value="_s-xclick">
+							<input type="hidden" name="hosted_button_id" value="898J9LF9DJ2Y4">
+							<input type="image" src="{{url_for('static',filename='css/images/icon-paypal.png')}}" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+						</form>
+                    	<a href="#"><img src="{{url_for('static',filename='css/images/icon-mastercard.png')}}" alt="MasterCard" title="MasterCard" /></a>
+                    	<a href="#"><img src="{{url_for('static',filename='css/images/icon-visa.png')}}" alt="Visa" title="Visa" /></a>
+                    	<a href="#"><img src="{{url_for('static',filename='css/images/icon-american-express.png')}}" alt="American Express" title="American Express" /></a>
+                    	<a href="#"><img src="{{url_for('static',filename='css/images/icon-discover.png')}}" alt="Discover" title="Discover" /></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End: Membership -->
+    
+    <!-- Start: Coastal Links -->
+    <div class="wrapper" id="links">
+    	<h2>Coastal Links</h2>
+        <ul class="costallinks">
+        	<li><a href="http://www.ramseyoutdoor.com/" target="_blank"><img src="{{url_for('static',filename='css/images/costal-thumb1.jpg')}}" alt="Ramsey Outdoor Store" title="Ramsey Outdoor Store" /></a></li>
+        	<li><a href="http://www.tightlinesflyfishing.com/" target="_blank"><img src="{{url_for('static',filename='css/images/costal-thumb2.jpg')}}" alt="Tight Lines Fly Shop" title="Tight Lines Fly Shop" /></a></li>
+        	<li class="right"><a href="http://www.stripersonline.com/" target="_blank"><img src="{{url_for('static',filename='css/images/costal-thumb3.jpg')}}" alt="" /></a></li>
+        	<li><a href="http://www.aswf.info/" target="_blank"><img src="{{url_for('static',filename='css/images/costal-thumb4.jpg')}}" alt="" /></a></li>
+        	<li><a href="http://bayshoresaltwaterflyrodders.com/" target="_blank"><img src="{{url_for('static',filename='css/images/costal-thumb5.jpg')}}" alt="" /></a></li>
+        	<li><img src="{{url_for('static',filename='css/images/costal-thumb6.jpg')}}" alt="" /></li>
+        	<li class="right"><img src="{{url_for('static',filename='css/images/costal-thumb7.jpg')}}" alt="" /></li>
+        	<li><img src="{{url_for('static',filename='css/images/costal-thumb8.jpg')}}" alt="" /></li>
+        	<li><a href="http://www.eastjerseytu.org/" target="_blank"><img src="{{url_for('static',filename='css/images/costal-thumb9.jpg')}}" alt="" /></a></li>
+        </ul>
+    </div>
+    <!-- End: Coastal Links -->
+</div>
+<!-- End: Body Content -->
+
+<!-- Start: Footer -->
+<div class="footer">
+	<div class="wrapper">
+    	<ul>
+            <li class="left"><a href="#meetings">Meetings</a></li>
+            <li><a href="#events">Events</a></li>
+            <li><a href="http://spot.coastalflyrodders.com/" target="_blank">Message Board</a></li>
+            <li><a href="#links">Links</a></li>
+        </ul>
+        <p>&copy; Copyrighted 2014 by coastalflyrodders.com, All Rights Reserved</p>
+    </div>
+</div>
+<!-- End: Footer -->
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-15908901-2");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+</body>
+</html>
