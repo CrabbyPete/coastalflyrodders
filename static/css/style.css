@@ -101,25 +101,31 @@ img { border: none 0; outline: none 0; }
 	line-height: 22px;
 	font-weight: normal;
 }
+
+.schedule .greypan {
+	background-color: #f2f2f2;
+	padding: 22px 0;
+	height: 220px;
+	
+}
+.schedule .whitepan {
+	padding: 22px 0;
+	background-color: #ffff;
+	height: 220px;
+}
 .schedule .picthumb {
 	float: left;
 	display: block;
 	border: #fff 6px solid;
     width:157px;
     height:193px;
-
 }
+
+
 .schedule h3 { font: bold 19px/22px Lato, sans-serif; padding-bottom: 20px; }
 .schedule h3,
 .schedule p { margin: 0 40px 0 202px; }
-.greypan {
-	background-color: #f2f2f2;
-	padding: 22px 0;
-}
-.whitepan {
-	padding: 22px 0;
-	background-color: #fff;
-}
+
 
 /* Events */
 .events { padding-bottom: 60px; }
