@@ -42,7 +42,8 @@ def index():
         day = datetime.strptime(row[0],"%m/%d/%Y")
         event_details.append( { 'date'    :day.strftime( "%a %B %d, %Y" ),
                                 'describe':row[1],
-                                'place'   :row[2]
+                                'place'   :row[2],
+                                'notes'   :row[3]
                               } )
     
     context = {'speakers':speaker_details, 'events':event_details}

@@ -71,13 +71,15 @@
               	<th width="200" align="left" valign="middle" class="first">Date</th>
               	<th width="560" align="left" valign="middle" class="middle">Description</th>
               	<th width="200" align="left" valign="middle" class="last">Place</th>
+              	<th width="100" align="left" valign="middle" class="last">Buy</th>
             </tr>
             {% for event in events %}
             <tr>
             	<td align="left" valign="middle">{{event.date}}</td></td>
                 <td align="left" valign="middle">{{event.describe}}</td>
                 <td align="left" valign="middle">{{event.place}}</td>
-              </tr>
+                <td align="left" valign="middle">{{event.notes|safe}}</td>
+            </tr>
             {% endfor %}
           </table>
     </div>
