@@ -41,8 +41,11 @@
 <div class="bodycont">
 	<div class="wrapper" id="meetings">
     	<h2>Meetings</h2>
-        <p>Meetings are held 7:30PM the third Tuesday of every month at the Larkin House <a href="https://maps.google.com/maps?q=380+Godwin+Ave,+Wyckoff,+NJ+07481&hnear=380+Godwin+Ave,+Wyckoff,+New+Jersey+07481&gl=us&t=m&z=16">380 Godwin Ave, Wyckoff, NJ 07481 </a> If you have questions about any meeting please post it on the message board and we will answer you.</p>
-        <h2 class="small">2016 Program Schedule</h2>
+        <p>Meetings are held 7:30PM the third Tuesday of every month at the Larkin House 
+        <a href="https://goo.gl/maps/ANyKVAToWqP2">
+        380 Godwin Ave , Wyckoff, NJ 07481 </a> 
+        If you have questions about any meeting please post it on the message board and we will answer you.</p>
+        <h2 class="small">2019 Program Schedule</h2>
     </div>
     <!-- Start: Program Schedule -->
 	<!-- January -->
@@ -50,7 +53,7 @@
     {% for  speaker in speakers %}
         <div class={{ loop.cycle("greypan", "whitepan") }}>
             <div class="block wrapper">
-                <img src="{{url_for( 'static',filename='photos/' + speaker.photo)}}" alt="" class="picthumb" />
+                <img src="{{speaker.photo}}" alt="" class="picthumb" />
                 <a href="{{speaker.url}}"><h3>{{speaker.name}}</h3></a>
                 <p>{{speaker.date}}</p>
                 <p>{{speaker.describe}}</p>
@@ -64,7 +67,7 @@
     <br/>
     <!-- Start: Events -->
     <div class="events wrapper" id="events">
-    	<h2>2016 Events</h2>
+    	<h2>Events for the year</h2>
 
           <table width="960" border="0" cellspacing="0" cellpadding="0" class="eventstbl">
             <tr>
@@ -89,7 +92,7 @@
     <div class="membership" id="membership">
     	<div class="wrapper">
         	<h2>Membership</h2>
-            <a href="Coastal Flyrodders Membership Application.pdf" class="downloadlink">click here to download</a>
+            <a href="{{url_for('static',filename='Coastal Flyrodders Membership Application.pdf')}}" class="downloadlink">click here to download</a>
             <p>Membership is $50.00 per year. You can mail a check to Coastal Flyrodders P.O Box 1402, Morristown, NJ 07962 or use simply use Paypal. You also need to sign the Membership Application. </p>
             <div class="paymentoptions">
             	<div class="inner">
@@ -100,10 +103,6 @@
 							<input type="hidden" name="hosted_button_id" value="898J9LF9DJ2Y4">
 							<input type="image" src="{{url_for('static',filename='css/images/icon-paypal.png')}}" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
 						</form>
-                    	<a href="#"><img src="{{url_for('static',filename='css/images/icon-mastercard.png')}}" alt="MasterCard" title="MasterCard" /></a>
-                    	<a href="#"><img src="{{url_for('static',filename='css/images/icon-visa.png')}}" alt="Visa" title="Visa" /></a>
-                    	<a href="#"><img src="{{url_for('static',filename='css/images/icon-american-express.png')}}" alt="American Express" title="American Express" /></a>
-                    	<a href="#"><img src="{{url_for('static',filename='css/images/icon-discover.png')}}" alt="Discover" title="Discover" /></a>
                     </div>
                 </div>
             </div>
